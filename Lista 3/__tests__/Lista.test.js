@@ -8,7 +8,7 @@ beforeEach(
     }
 );
 
-test("Incialização",
+test("Inicialização",
     () => {
         expect(l.isEmpty()).toBe(true);
     }
@@ -52,6 +52,7 @@ test("Testes Diversos",
 
 test("Limpar lista",
     () => {
+        l.add(10);
         l.clear();
         expect(l.isEmpty()).toBe(true);
     }
@@ -65,4 +66,22 @@ test("Buscar dado na lista",
         l.add("D");
         expect(l.search("C")).toBe(2);
         expect(l.search("F")).toBe(-1);
+})
+
+test("Adicionar em uma posição", () => {
+    l.add(10);
+    l.append(20);
+    l.append(30);
+    l.addAt(25, 3);
+    expect(l.asArray()).toStrictEqual([10, 20, 25, 30]);
+})
+
+test("Busca por dado", () => {
+    l.add(10);
+    l.append(20);
+    l.append(30);
+    l.append(40);
+    l.append(50);
+    expect(l.searchIndex(3)).toBe(30);
+    expect(l.search(30)).toBe(3);
 })

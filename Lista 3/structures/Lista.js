@@ -146,6 +146,19 @@ class Lista {
             i++;
         }
     }
+
+    searchIndex(pos){
+        if(!this.isEmpty()){
+            let aux = this.head;
+            let aux2 = 0;
+            while(aux.proximo !== null){
+                aux = aux.proximo;
+                aux2++;
+            }
+            return aux.dado;
+        }
+        throw new Error("Empty list");
+    }
     
     asArray() {
         let resultado = [];
@@ -158,17 +171,21 @@ class Lista {
     }
 
     clear(){
-        let aux;
-        let no_atual = new No();
-        for (no_atual = this.head; no_atual !== null; ){
-            aux = no_atual.proximo;
-            no_atual.proximo = null;
-            no_atual = aux;
+        if(!this.isEmpty()){
+            let aux = this.head;
+            let no_atual = this.head;
+            while(no_atual !== null){
+                aux = no_atual.proximo;
+                no_atual.proximo = null;
+                no_atual = aux;
+            }
+            this.head.proximo = null;
+            this.tam = 0;
+            return;
         }
-        this.head.proximo = null;
-        this.size = 0;
+        throw new Error("Empty list");
     }
-
+    
     toString(){
         let string = "";
         let nodeAux = this.head.proximo;
