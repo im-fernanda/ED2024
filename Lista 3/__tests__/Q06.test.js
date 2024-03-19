@@ -36,13 +36,15 @@ test("Remover elementos da lista vazia",
 
 test("Substring", 
     () => {
-        l.add("A");
-        l.add("B");
-        l.add("C");
-        l.add("D");
+        l.add("F");
         l.add("E");
-        l.add("F");   
-        expect(substring(2,4,l)).toBe("B C D ");
+        l.add("R");
+        l.add("N");
+        l.add("A");
+        l.add("N");   
+        l.add("D");   
+        l.add("A");   
+        expect(substring(1, 5, l)).toBe("N A N D A ");
     
     }
 );
