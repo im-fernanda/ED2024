@@ -84,25 +84,34 @@ class Lista {
 
     
     removeAt(pos) {
+        if(this.isEmpty()){
+             throw new Error("Underflow");
+        }
+        
         // Verifica se a posição é válida
-        if (pos < 0 || pos >= this.length()) {
+        if (pos < 0 || pos > this.length()) {
             throw new Error("Posição inválida");
         }
     
         // Se a posição for 0, remove o primeiro nó
         if (pos === 0) {
             this.removeFirst();
-        } else {
-            let atual = this.head;
-            let anterior = null;
-            for (let i = 0; i < pos; i++) {
-                anterior = atual;
-                atual = atual.proximo;
-            }
-    
-            // Remove o nó na posição especificada atualizando os ponteiros
-            anterior.proximo = atual.proximo;
+            return;
+        } 
+
+        if (pos === this.length()) {
+            this.removeLast();
+            return;
+        } 
+        
+        let atual = this.head;
+        let anterior = null;
+        for (let i = 0; i < pos; i++) {
+            anterior = atual;
+            atual = atual.proximo;
         }
+        // Remove o nó na posição especificada atualizando os ponteiros
+        anterior.proximo = atual.proximo;
     
         // Reduz o tamanho da lista
         this.size--;
@@ -150,14 +159,14 @@ class Lista {
     searchIndex(pos){
         if(!this.isEmpty()){
             let aux = this.head;
-            let aux2 = 0;
+            let i = 0;
             while(aux.proximo !== null){
                 aux = aux.proximo;
-                aux2++;
+                i++;
             }
             return aux.dado;
         }
-        throw new Error("Empty list");
+        throw new Error("Underflow");
     }
     
     asArray() {
@@ -183,7 +192,7 @@ class Lista {
             this.tam = 0;
             return;
         }
-        throw new Error("Empty list");
+        throw new Error("Underflow");
     }
     
     toString(){
