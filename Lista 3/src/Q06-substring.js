@@ -1,21 +1,33 @@
 import Lista from "../structures/Lista";
 
 export default function substring(pos1, pos2, lista){
-    let novaLista = new Lista();
-
     // Verifica se as posições são válidas
-    if (pos1 < 0 || pos2 >= lista.length() || pos1 > pos2) {
+    if (pos1 < 0 || pos2 >= lista.length() || pos2 < 0 || pos1 >= lista.length()) {
         throw new Error("Posições inválidas");
     }
 
-    let atual = lista.searchForPos(pos1);
+    let novaLista = new Lista();
 
+    //ARRUMAR A PARTIR DAQUI
+    
      // Itera sobre os nós da posição A até a posição B
-     for (let i = pos1; i <= pos2; i++) {
-        novaLista.add(atual.dado); // Adiciona o caractere atual à nova lista
-        atual = atual.proximo; // Move para o próximo nó
+    if(pos2 > pos1) {
+         let atual = "";
+         for (let i = pos1; i <= pos2; i++) {
+            atual = lista.searchForPos(i);
+            novaLista.add(atual.dado); // Adiciona o caractere atual à nova lista
+            atual = atual.proximo; // Move para o próximo nó
+        }
+    }
+    if (pos2 > pos1) {
+        let atual = "";
+        for (let i = pos1; i >= pos2; i++) {
+            atual = lista.searchForPos(i);
+            novaLista.add(atual.dado); 
+            atual = atual.proximo; 
+        }
     }
 
-    let string = novaLista.toString();
-    return string;
+    let subString = novaLista.toString();
+    return subString;
 };
