@@ -107,10 +107,10 @@ class Lista {
                 }
                 aux = aux.proximo;
             }
-        }else{
-            throw new Error("ListEmpty");
-        }
-        return false;
+            return;
+        }  
+        
+        throw new Error("Underflow");
     }
 
     searchIndex(pos){
@@ -125,12 +125,12 @@ class Lista {
                     cont++;
                 }
                 return dado;
-            }else{
+            } else {
                 throw new Error("NullPointerException");
             }
-        }else{
-            throw new Error("ListEmpty");
         }
+        
+        throw new Error(Underflow");
     }
     
     asArray() {
