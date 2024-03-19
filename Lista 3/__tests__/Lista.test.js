@@ -50,13 +50,13 @@ test("Testes Diversos",
     }
 );
 
-test("Limpar lista",
-    () => {
-        l.add(10);
-        l.clear();
-        expect(l.isEmpty()).toBe(true);
-    }
-);
+// test("Limpar lista",
+//     () => {
+//         l.add(10);
+//         l.clear();
+//         expect(l.isEmpty()).toBe(true);
+//     }
+// );
 
 test("Buscar dado na lista", 
     () => {

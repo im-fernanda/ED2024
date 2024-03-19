@@ -52,10 +52,9 @@ class Lista {
         let novo_no = new No(dado);
         let aux = this.head;
 
-        while (aux.proximo !== null) {
+        while(aux.proximo !== null) {
             aux = aux.proximo;
         }
-
         aux.proximo = novo_no;
         this.size++;
     }
@@ -124,38 +123,15 @@ class Lista {
         return -1; //dado não encontrado
     }
 
-    searchForPos(pos) {
-        // Verifica se a lista está vazia
-        if (this.isEmpty()) {
-            throw new Error("Underflow");
-        }
-    
-        // Verifica se a posição é válida
-        if (pos < 1 || pos > this.length()) {
-            throw new Error("Posição inválida");
-        }
-    
-        // Percorre a lista até a posição desejada
-        let i = 0;
-        let atual = this.head;
-        while (atual !== null) {
-            if (i === pos) {
-                return atual;
-            }
-            atual = atual.proximo;
-            i++;
-        }
-    }
-
-    searchIndex(pos){
+    searchForPos(pos){
         if(!this.isEmpty()){
             let aux = this.head;
-            let aux2 = 0;
-            while(aux.proximo !== null){
+            let i = 0;
+            while(i !== pos){
                 aux = aux.proximo;
-                aux2++;
+                i++;
             }
-            return aux.dado;
+            return aux;
         }
         throw new Error("Empty list");
     }
@@ -185,7 +161,7 @@ class Lista {
         }
         throw new Error("Empty list");
     }
-    
+
     toString(){
         let string = "";
         let nodeAux = this.head.proximo;

@@ -39,10 +39,10 @@ test("Substring",
         l.add("A");
         l.add("B");
         l.add("C");
-        l.add("D");
-        l.add("E");
-        l.add("F");   
-        expect(substring(2,4,l)).toBe("B C D ");
+        l.add("D"); 
+        l.add("E"); 
+        expect(l.asArray()).toEqual(["E", "D", "C", "B", "A"]);
+        expect(substring(1,4,l)).toBe("B C D E ");
     
     }
 );

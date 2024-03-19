@@ -31,7 +31,7 @@ class ListaDuplamenteEncadeada {
 
         // Caso contrário, o novo nó é adicionado como a nova cabeça da lista
         novo_no.prox = this.head;
-        novo_no.ant = null;
+        // novo_no.ant = null;
         this.head.ant = novo_no;
         this.head = novo_no;
     }
