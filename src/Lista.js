@@ -29,7 +29,7 @@ class Lista {
      * @returns {boolean} Verdadeiro se a lista estiver vazia, falso caso contrário.
      */
     isEmpty() {
-        return this.head.proximo === null; 
+        return this.head.proximo === null;  // Verifica se não há nenhum próximo nó após o head. 
     }
 
     /**
@@ -70,7 +70,7 @@ class Lista {
             let aux = this.head.proximo; // Obtém o primeiro elemento da lista
             this.head.proximo = aux.proximo; // Atualiza o início da lista para apontar para o segundo elemento
             this.size--; // Decrementa o tamanho da lista
-            return; // Retorna
+            return; 
         }
         throw new Error("Underflow"); // Lança um erro de "Underflow" se a lista estiver vazia
     }
@@ -91,7 +91,7 @@ class Lista {
 
             node_b.proximo = null; // Remove o último nó, definindo o próximo do penúltimo nó como nulo
             this.size--; // Decrementa o tamanho da lista
-            return; // Retorna
+            return; 
         }
         throw new Error("Underflow"); // Lança um erro de "Underflow" se a lista estiver vazia
     }
@@ -181,7 +181,7 @@ class Lista {
      * @returns {number} O índice do dado na lista, ou -1 se não encontrado.
      * @throws {Error} Se a lista estiver vazia ou se a posição especificada for inválida.
      */
-    searchIndex(dado) {
+    searchIndex(pos) {
         if (!this.isEmpty()) { // Verifica se a lista não está vazia
             let aux = this.head.proximo; // Define um nó auxiliar para percorrer a lista, começando do segundo nó
             let cont = 0; // Inicializa o contador de posição
@@ -196,6 +196,22 @@ class Lista {
         } else {
             throw new Error("Empty list"); // Lança um erro se a lista estiver vazia
         }
+    }
+
+    clear(){
+        if(!this.isEmpty()){
+            let aux = this.head;
+            let no_atual = this.head;
+            while(no_atual !== null){
+                aux = no_atual.proximo;
+                no_atual.proximo = null;
+                no_atual = aux;
+            }
+            this.head.proximo = null;
+            this.tam = 0;
+            return;
+        }
+        throw new Error("Empty list");
     }
 
     /**

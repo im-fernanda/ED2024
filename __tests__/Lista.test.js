@@ -52,6 +52,8 @@ test("Testes Diversos",
 
 test("Limpar lista",
     () => {
+        l.add(30);
+        l.add(40);
         l.clear();
         expect(l.isEmpty()).toBe(true);
     }
