@@ -19,7 +19,8 @@ test("Adicionar elementos",
         l.add("A");
         expect(l.isEmpty()).toBe(false);
         expect(l.length()).toBe(1);
-        l.remove();
+
+        l.remove("A");
         expect(l.isEmpty()).toBe(true);
         expect(l.length()).toBe(0);
     }
@@ -28,6 +29,7 @@ test("Adicionar elementos",
 test("Remover elementos da lista Vazia",
     () => {
         expect(() => l.remove()).toThrow(Error("Underflow"));
+        expect(() => l.removeFirst()).toThrow(Error("Underflow"));
         expect(() => l.removeLast()).toThrow(Error("Underflow"));
 
     }
