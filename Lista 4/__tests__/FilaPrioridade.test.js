@@ -1,4 +1,4 @@
-import FilaPrioridade from "../src/FilaPrioridade";
+import FilaPrioridade from "../structures/FilaPrioridade";
 
 let fp
 

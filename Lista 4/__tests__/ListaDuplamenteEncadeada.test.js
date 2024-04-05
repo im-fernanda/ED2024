@@ -1,4 +1,4 @@
-import ListaDuplamenteEncadeada from "../src/ListaDuplamenteEncadeada";
+import ListaDuplamenteEncadeada from "../structures/ListaDuplamenteEncadeada";
 
 let l;
 

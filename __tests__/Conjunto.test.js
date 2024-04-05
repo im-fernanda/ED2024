@@ -1,7 +1,5 @@
 import Conjunto from "../src/Conjunto";
 
-
-
 let A, B;
 
 beforeEach(() => {
@@ -29,7 +27,6 @@ test("union", () => {
 });
 
 
-
 test("contains", () => {
 	expect(A.contains(B)).toBe(false);
 });
@@ -38,35 +35,41 @@ test("Para qualquer conjunto A, ∅ ⊆ A", () => {
 	expect(A.contains(new Conjunto())).toBe(true);
 });
 
-//novos
+//Interseção com conjunto vazio
 test("A ∩ ∅ = ∅", () => {
 	let c3 = A.intersection(new Conjunto());
 	expect(c3.isEqual(new Conjunto())).toBe(true);
 });
-
+//União com conjunto vazio
 test("A U ∅ = A", () => {
 	let c3 = A.union(new Conjunto());
 	expect(c3.isEqual(A)).toBe(true);
 });
+//Interseção com si mesmo
 test("A ∩ A = A ", () => {
 	let c3 = A.intersection(A);
 	expect(c3.isEqual(A)).toBe(true);
 });
-test("A U A = A  ", () => {
+//União com si mesmo
+test("A U A = A ", () => {
 	let c3 = A.union(A);
 	expect(c3.isEqual(A)).toBe(true);
 });
-test("A ∩ B = B ∩ A   ", () => {
+//Comutatividade
+test("A ∩ B = B ∩ A", () => {
 	let c3 = A.intersection(B);
 	let c4 = B.intersection(A);
 	expect(c3.isEqual(c4)).toBe(true);
 });
-test("A U B = B U A   ", () => {
+//Comutatividade
+test("A U B = B U A", () => {
 	let c3 = A.union(B);
 	let c4 = B.union(A);
 	expect(c3.isEqual(c4)).toBe(true);
 });
 
+
+//leis associativas
 test("A ∩ ( B ∩ C ) = (A ∩ B) ∩ C (leis associativas)", () => {
 	let C = new Conjunto();
 	C.add("F");
@@ -95,6 +98,7 @@ test("A U (B U C) = (A U B) U C (leis associativas)", () => {
 	expect(AuBuC.isEqual(AuBuC2)).toBe(true);
 });
 
+//Leis distributivas
 test("A ∩ (B U C) = (A ∩ B) U (A ∩ C) (leis distributivas)", () => {
 	let C = new Conjunto();
 	C.add("F");
@@ -125,6 +129,7 @@ test("A U (B ∩ C) = (A U B) ∩ (A U C) (leis distributivas)", () => {
 	expect(AuBiC.isEqual(AuBiAuC)).toBe(true);
 });
 
+//leis da absorção
 test("A ∩ (A U B) = A (leis da absorção)", () => {
 	let AuB = A.union(B);
 	let AiAuB = A.intersection(AuB);
@@ -139,6 +144,7 @@ test("A U (A ∩ B) = A (leis da absorção)", () => {
 	expect(AuAiB.isEqual(A)).toBe(true);
 });
 
+//leis de DeMorgan
 test("A - (B ∩ C) = (A - B) U (A - C) (leis de DeMorgan)", () => {
 	let C = new Conjunto();
 	C.add("F");

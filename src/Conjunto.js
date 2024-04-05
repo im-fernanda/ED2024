@@ -32,6 +32,19 @@ class Conjunto {
     isEqual(conjuntoB) {
         return this.contains(conjuntoB) && conjuntoB.contains(this);
     }
+
+    contains(conjuntoB) {
+        let valoresB = conjuntoB.values();
+
+        for (let b of valoresB) {
+            if (!this.has(b)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     union(conjuntoB) {
         let resultado = new Conjunto();
 
@@ -47,6 +60,7 @@ class Conjunto {
 
         return resultado;
     }
+
     intersection(conjuntoB) {
         let resultado = new Conjunto();
 
@@ -60,6 +74,7 @@ class Conjunto {
 
         return resultado;
     }
+    
     difference(conjuntoB) {
         let resultado = new Conjunto();
         let valoresA = this.values();
@@ -73,18 +88,7 @@ class Conjunto {
         }
         return resultado;
     }
-    contains(conjuntoB) {
-
-        let valoresB = conjuntoB.values();
-
-        for (let b of valoresB) {
-            if (!this.has(b)) {
-                return false;
-            }
-        }
-
-        return true;
-    }
+   
 }
 
 export default Conjunto;

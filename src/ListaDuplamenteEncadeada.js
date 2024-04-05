@@ -108,7 +108,7 @@ class ListaDuplamenteLigada {
                 while (next != null) {
                     if (next.dado === dado) {
                         aux = next.proximo;
-                        current.proximo = aux;
+                        current.proximo = next.proximo;
                         aux.anterior = current;
                         return true;
                     }

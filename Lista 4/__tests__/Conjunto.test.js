@@ -1,4 +1,4 @@
-import Conjunto from "../src/Conjunto";
+import Conjunto from "../structures/Conjunto";
 
 
 
