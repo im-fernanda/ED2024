@@ -36,7 +36,7 @@ class FilaPrioridade {
 			pos_pai = Math.trunc(pos_filho / 2);
 		}
 
-		this.tree[pos_filho] = node;
+		this.tree[pos_filho] = novo_no;
 	}
 
 	/*
@@ -51,7 +51,7 @@ class FilaPrioridade {
 		let ultimo = this.tree[this.size];
 		this.tree[1] = ultimo;
 		this.size = this.size - 1;
-		let pos_pai;
+		let pos_pai, pos_filho;
 		for (pos_pai = 1; pos_pai * 2 <= this.size; pos_pai = pos_filho) {
 			pos_filho = pos_pai * 2;
 			if (
