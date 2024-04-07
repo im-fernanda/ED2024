@@ -229,19 +229,16 @@ class ListaDuplamenteLigada {
      * @returns {boolean} - Retorna [true] caso o dado tenha sido encontrado e [false] se ele não existir
      */
     search(dado) {
-        if (this.isEmpty()) {
-            return false;
-        } else {
-            let tmp = this.head;
-            while (tmp !== null) {
-                if (tmp.dado == dado) {
-                    return true;
-                }
-                //iteração
-                tmp = tmp.proximo;
+        let tmp = this.head;
+        while (tmp !== null) {
+            if (tmp.dado === dado) {
+                return true;
             }
-            return false;
+            //iteração
+            tmp = tmp.proximo;
         }
+
+        return false;
     }
 
     clear() {

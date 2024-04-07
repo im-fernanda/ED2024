@@ -1,4 +1,4 @@
-import Conjunto from "../src/Conjunto";
+import Q2023 from "";
 
 let A, B;
 
